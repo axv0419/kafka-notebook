@@ -10,7 +10,7 @@ git clone  <Git URL of this project> ~/workspace/kafka-notebook
 ## Build Notebook Image
 
 ```bash
-docker -t kafka-py/notebook  ./image  
+docker build -t kafka-py/notebook  ./image  
 ```
 
 ### Run Notebook 
