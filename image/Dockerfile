@@ -55,10 +55,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 
 RUN pip install -r /tmp/requirements.txt
-    RUN mkdir -p /tmp
-    COPY ./ccloud-latest.tar.gz /tmp
-    RUN mkdir -p /app && \
-        cd /app && tar xzf /tmp/ccloud-latest.tar.gz 
+
+RUN mkdir -p /tmp
+COPY ./ccloud-latest.tar.gz /tmp
+RUN mkdir -p /app && \
+    cd /app && tar xzf /tmp/ccloud-latest.tar.gz 
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
