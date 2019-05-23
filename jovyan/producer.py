@@ -30,7 +30,7 @@ def read_and_feed_file(conf,topic,filepath):
     
     key = data['payload']['Account_Id__c']
     
-    producer.produce(topic, data, key=key, callback=delivery_report,headers={"src":"poc-script"})
+    producer.produce(topic, data, key=key, callback=delivery_report,headers=json.dumps( {"src":"poc-script"}))
     try:
         producer.poll(0)
     except:
